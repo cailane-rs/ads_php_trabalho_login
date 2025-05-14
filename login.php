@@ -15,7 +15,7 @@
                 return false;
             }
 
-            if (senha.length < 4) {
+            if (senha.length =< 8) {
                 window.alert("A senha deve ter pelo menos 8 caracteres.");
                 return false;
             }
