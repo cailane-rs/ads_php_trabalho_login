@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de usuários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanner"></div>
+<header>
+
+    <h1>Bem-vindo(a)!</h1>
+    <h2>Dashboard de usuários (área restrita):</h2>
+
+</header>
+<main>
+
+    <div id="lista-usuarios">Carregando usuários... em tempo real!</div>
+    <div class="botao_atualizar">
+        <button onclick="atualizarUsuarios()">Atualizar lista</button>
+    </div>
+
+</main>
+
+    <script>
+        function atualizarUsuarios() { //Aqui está o uso do AJAX, professor:
+            fetch('dashboard.php') //Está chamando o arquivo PHP que lida com os dados do banco.
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('lista-usuarios').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('lista-usuarios').innerText = "Erro ao carregar os usuários do banco, verifique com os meninos da informática Fabio e Guilherme.";
+                    console.error('Erro: ', error);
+                });
+        };
+        
+        window.onload = atualizarUsuarios();
+    </script>
+
+    <div class="botao_sair">
+        <a href="login.php">
+            <button>Sair</button>
+        </a>
+    </div>
+</body>
+</html>
