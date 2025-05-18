@@ -1,4 +1,6 @@
 <?php 
+session_start();
+echo "Bem-vindo, " . $_SESSION['usuario_nome'];
 
 $conn = new mysqli('localhost', 'root', 'admin', 'banco');
 if ($conn->connect_error) {

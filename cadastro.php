@@ -10,7 +10,7 @@
     <?php
         $servername = "localhost";
         $username = "root";
-        $password  = "root";
+        $password  = "admin";
         $dbname = "banco";
 
         $nome = $_POST['nome'];
@@ -25,21 +25,30 @@
             //É aqui que vou verificar se já tem email cadastrado.
             
             $stmt = $conn->prepare("select id from usuarios where email=?");
-            //Aqui estou passaddo os parametros
+            if (!$stmt) {
+    die("Erro ao preparar statement: " . $conn->error);
+}
+            //Aqui estou passando os parametros
             $stmt->bind_param("s", $email);
             $stmt->execute();
-            //Esse store_result meio que guarda os resultados da consulta da query.
+            //Esse store_result guarda os resultados da consulta da query.
             $stmt->store_result();
             //Caso tenha algum email vai retornar a linha e vai cair nesse if...
             if ($stmt->num_rows > 0) {
-                //Morre a aplicação.
-                die("Email já cadastrado.");
+                echo "<script>
+                alert('Email já cadastrado.');
+                window.location.href = 'index.php';
+                </script>";
+    exit;
             }
             $stmt->close();
 
             $senhaHash = password_hash($senha, PASSWORD_DEFAULT, $options);
             $stmt = $conn->prepare("insert into usuarios (nome, email, senha) values (?,?,?)");
             $stmt->bind_param("sss", $nome, $email, $senhaHash);
+            if (!$stmt) {
+    die("Erro ao preparar statement: " . $conn->error);
+}
     
             $stmt->execute();
             $stmt->close();

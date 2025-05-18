@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de usuários</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
     <div class="scanner"></div>
 <header>
 
-    <h1>Bem-vindo(a)!</h1>
     <h2>Dashboard de usuários (área restrita):</h2>
 
 </header>
@@ -18,8 +17,9 @@
 
     <div id="lista-usuarios">Carregando usuários... em tempo real!</div>
     <div class="botao_atualizar">
-        <button onclick="atualizarUsuarios()">Atualizar lista</button>
+        <button onclick="atualizarUsuarios()" title="Para testar o AJAX, sugerimos que abra a tela inicial (index.php) em outra guia e crie um novo usuário, volte nesta tela e clique em atualizar. O novo usuário vai ser trazido na lista acima sem que a tela toda seja carregada.">Atualizar lista</button>
     </div>
+    <p>Observação: Para testar o AJAX, sugerimos que abra a tela inicial (<a href="index.php" target="_blank">index.php</a>) em outra guia e crie um novo usuário, volte nesta tela e clique em atualizar. O novo usuário vai ser trazido na lista acima sem que a tela toda seja carregada.</p>
 
 </main>
 
@@ -31,7 +31,7 @@
                     document.getElementById('lista-usuarios').innerHTML = data;
                 })
                 .catch(error => {
-                    document.getElementById('lista-usuarios').innerText = "Erro ao carregar os usuários do banco, verifique com os meninos da informática Fabio e Guilherme.";
+                    document.getElementById('lista-usuarios').innerText = "Erro ao carregar os usuários do banco, verifique com os meninos da informática Fabio e Guilherme e só incomode a Cailane se necessário.";
                     console.error('Erro: ', error);
                 });
         };
@@ -40,7 +40,7 @@
     </script>
 
     <div class="botao_sair">
-        <a href="login.php">
+        <a href="index.php">
             <button>Sair</button>
         </a>
     </div>
