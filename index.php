@@ -114,7 +114,7 @@
 
             <div class="form-group">
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" required class="input-form">
+                <input type="password" id="idSenha" name="senha" required class="input-form">
             </div>
 
             <input type="submit" name="cadastrar" value="Cadastrar" class="submit-button">
