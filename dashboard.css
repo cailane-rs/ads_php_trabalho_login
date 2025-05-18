@@ -1,3 +1,10 @@
+html, body { /*Pra permitir a rolagem pela tela*/
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 body {
     background-color: black;
     color: #00ff00; 
@@ -25,7 +32,7 @@ button {
     padding: 10px 15px;
     cursor: pointer;
     font-family: monospace;
-    transition: box-shadow 0.3s ease-in-out; /*Aqui professor, fizem*/
+    transition: box-shadow 0.3s ease-in-out; /*Aqui professor, fizemos um transição da sombra do botão que vai aumentando em 0.3 segundos, pra ficar mais fluida*/
 }
 
 button:hover {
@@ -35,10 +42,9 @@ button:hover {
 .botao_sair {
     display: flex;
     justify-content: center;
-    margin-top: auto;
 }
 
-.scanner {
+.scanner { /*Efeito visual de luz passando no topo da tela*/
     position: fixed;
     top: -100px;
     left: 0;
@@ -46,9 +52,9 @@ button:hover {
     height: 100px;
     background: linear-gradient(to bottom, transparent, #00ff00, transparent);
     opacity: 0.2;
-    animation: passarLuz 3s linear infinite;
+    animation: passarLuz 3s linear infinite; /*anima a luz descendo pela tela, repetindo sempre */
     pointer-events: none; /* deixa clicável os elementos por baixo */
-    z-index: 9999;
+    z-index: 9999; /*deixa a luz por cima de tudo*/
 }
 
 @keyframes passarLuz {

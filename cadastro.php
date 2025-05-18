@@ -10,7 +10,7 @@
     <?php
         $servername = "localhost";
         $username = "root";
-        $password  = "cabecadedragao";
+        $password  = "admin";
         $dbname = "banco";
 
         $nome = $_POST['nome'];
@@ -28,15 +28,18 @@
             if (!$stmt) {
     die("Erro ao preparar statement: " . $conn->error);
 }
-            //Aqui estou passaddo os parametros
+            //Aqui estou passando os parametros
             $stmt->bind_param("s", $email);
             $stmt->execute();
-            //Esse store_result meio que guarda os resultados da consulta da query.
+            //Esse store_result guarda os resultados da consulta da query.
             $stmt->store_result();
             //Caso tenha algum email vai retornar a linha e vai cair nesse if...
             if ($stmt->num_rows > 0) {
-                //Morre a aplicação.
-                die("Email já cadastrado.");
+                echo "<script>
+                alert('Email já cadastrado.');
+                window.location.href = 'index.php';
+                </script>";
+    exit;
             }
             $stmt->close();
 

@@ -1,6 +1,8 @@
 <?php 
+session_start();
+echo "Bem-vindo, " . $_SESSION['usuario_nome'];
 
-$conn = new mysqli('localhost', 'root', 'cabecadedragao', 'banco');
+$conn = new mysqli('localhost', 'root', 'admin', 'banco');
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }

@@ -13,3 +13,25 @@ CREATE TABLE usuarios(
     senha VARCHAR(100) NOT NULL
 );
 ```
+# Validações   
+Executamos os seguintes testes na aplicação:
+Cadastro:
+- Todos os campos são obrigatórios;
+- A senha deve ter no mínimo 8 caracteres;
+- Um e-mail não pode ser igual a outro;
+
+Login:
+- Campos são obrigatórios;
+- Se a senha informada estiver incorreta;
+- Se a senha informada for de outro usuário cadastrado (fica como senha incorreta);
+- Se tentar logar com o nome em vez do email (não permite);
+
+Dashboard
+- Vai trazer o nome do usuário logado;
+- O AJAX funciona através do botão "Atualizar lista";
+
+# Melhorias
+Cadastro:
+- Também tem a opção de ir direto para a tela de login, caso já possua uma conta;
+Login:
+- A mensagem de senha incorreta some após 5 segundos;
