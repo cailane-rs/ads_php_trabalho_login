@@ -10,7 +10,7 @@
     <?php
         $servername = "localhost";
         $username = "root";
-        $password  = "root";
+        $password  = "cabecadedragao";
         $dbname = "banco";
 
         $nome = $_POST['nome'];
@@ -25,6 +25,9 @@
             //É aqui que vou verificar se já tem email cadastrado.
             
             $stmt = $conn->prepare("select id from usuarios where email=?");
+            if (!$stmt) {
+    die("Erro ao preparar statement: " . $conn->error);
+}
             //Aqui estou passaddo os parametros
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -40,6 +43,9 @@
             $senhaHash = password_hash($senha, PASSWORD_DEFAULT, $options);
             $stmt = $conn->prepare("insert into usuarios (nome, email, senha) values (?,?,?)");
             $stmt->bind_param("sss", $nome, $email, $senhaHash);
+            if (!$stmt) {
+    die("Erro ao preparar statement: " . $conn->error);
+}
     
             $stmt->execute();
             $stmt->close();

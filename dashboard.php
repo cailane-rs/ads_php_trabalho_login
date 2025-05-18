@@ -1,6 +1,6 @@
 <?php 
 
-$conn = new mysqli('localhost', 'root', 'admin', 'banco');
+$conn = new mysqli('localhost', 'root', 'cabecadedragao', 'banco');
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
