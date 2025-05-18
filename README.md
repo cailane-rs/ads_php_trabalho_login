@@ -15,6 +15,7 @@ CREATE TABLE usuarios(
 ```
 # Validações   
 Executamos os seguintes testes na aplicação:
+
 Cadastro:
 - Todos os campos são obrigatórios;
 - A senha deve ter no mínimo 8 caracteres;
@@ -26,7 +27,7 @@ Login:
 - Se a senha informada for de outro usuário cadastrado (fica como senha incorreta);
 - Se tentar logar com o nome em vez do email (não permite);
 
-Dashboard
+Dashboard:
 - Vai trazer o nome do usuário logado;
 - O AJAX funciona através do botão "Atualizar lista";
 
