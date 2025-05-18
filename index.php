@@ -127,15 +127,16 @@
 
     <script>
         function validaLogin() {
-            const senha = document.getElementById("senha").value;
-            if (senha.length < 8) {
-                alert("A senha deve ter pelo menos 8 caracteres.");
+            var senha = document.getElementById("idSenha");
+
+            if (senha.value.length < 8) {
+                window.alert("A senha deve ter pelo menos 8 caracteres.");
                 return false;
             }
+
             return true;
         }
     </script>
-
 </body>
 
 </html>
